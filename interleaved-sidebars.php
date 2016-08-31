@@ -53,8 +53,6 @@ class Interleaved_Sidebars
 			add_action( 'dynamic_sidebar_after', array( __CLASS__, 'add' ) );
 			add_filter( 'is_active_sidebar', array( __CLASS__, 'filter' ), 10, 2 );
 		}
-		add_action( 'dynamic_sidebar_before', array( __CLASS__, 'add' ) );
-		add_filter( 'is_active_sidebar', array( __CLASS__, 'filter' ), 10, 2 );
 	}
 
 	/**
@@ -99,8 +97,8 @@ class Interleaved_Sidebars
 /**
  * Adding sidebars to other sidebars
  *
- * @param array  $sidebar_indexes Sidebar id's where other sidebars to add
  * @param array  $additional_sidebar_indexes Sidebar id's to add
+ * @param array  $sidebar_indexes Sidebar id's where other sidebars to add
  * @param string $insert_situation Add sidebars 'before' or 'after' existing sidebar
  *
  * @since 1.0.0
