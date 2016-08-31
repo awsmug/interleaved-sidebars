@@ -105,7 +105,7 @@ class Interleaved_Sidebars
  *
  * @since 1.0.0
  */
-function interleave_sidebars( $additional_sidebar_indexes, $sidebar_indexes, $insert_situation )
+function interleave_sidebars( $additional_sidebar_indexes, $sidebar_indexes, $insert_situation = 'after' )
 {
 	Interleaved_Sidebars::interleave_sidebars( $additional_sidebar_indexes, $sidebar_indexes, $insert_situation );
 }
