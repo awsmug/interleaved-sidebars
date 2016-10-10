@@ -7,7 +7,7 @@
  *
  * @author  Sven Wagener - awesome.ug
  * @license GNU General Public License v3
- * @version 1.0.0
+ * @version 1.0.1
  * @since   1.0.0
  */
 class Interleaved_Sidebars
@@ -34,11 +34,20 @@ class Interleaved_Sidebars
 	 * @param array  $additional_sidebar_indexes Sidebar id's to add
 	 * @param array  $sidebar_indexes Sidebar id's where other sidebars to add
 	 * @param string $insert_situation Add sidebars 'before' or 'after' existing sidebar
+	 * @param string $insert_in Insett into all/admin/frontend (default)
 	 *
 	 * @since 1.0.0
 	 */
-	public static function interleave_sidebars( $additional_sidebar_indexes, $sidebar_indexes, $insert_situation = 'after' )
+	public static function interleave_sidebars( $additional_sidebar_indexes, $sidebar_indexes, $insert_situation = 'after', $insert_in = 'frontend' )
 	{
+		if( 'frontend' === $insert_in && is_admin() ) {
+			return;
+		}
+
+		if( 'admin' === $insert_in && ! is_admin() ) {
+			return;
+		}
+
 		self::$sidebar_indexes            = $sidebar_indexes;
 		self::$additional_sidebar_indexes = $additional_sidebar_indexes;
 
